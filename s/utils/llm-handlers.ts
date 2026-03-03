@@ -4,7 +4,8 @@
  */
 
 import type { AnyEffect, VideoEffect, ImageEffect, AudioEffect, TextEffect } from "../context/types.js"
-import { generate_id } from "@benev/slate"
+// @ts-ignore - TypeScript doesn't recognize this export at build time
+import { generate_id } from "@benev/slate/x/tools/generate_id.js"
 
 export interface TimelineHandlers {
     addEffectToTimeline: (effect: AnyEffect) => void
@@ -270,7 +271,7 @@ function createEffectFromMedia(
                     rotation: 0,
                     pivot: { x: 0, y: 0 }
                 },
-                stroke: null,
+                stroke: { width: 0, color: 0 },
                 strokeThickness: 0,
                 lineJoin: "round" as const,
                 miterLimit: 10,
